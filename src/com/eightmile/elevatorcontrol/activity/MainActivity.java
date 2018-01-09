@@ -1,12 +1,14 @@
 package com.eightmile.elevatorcontrol.activity;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
 import com.eightmile.elevatorcontrol.db.ElevatorDB;
+import com.eightmile.elevatorcontrol.model.Ad;
 import com.eightmile.elevatorcontrol.util.Config;
 import com.eightmile.elevatorcontrol.util.HttpUtil;
 import com.eightmile.elevatorcontrol.util.LogUtil;
@@ -67,7 +69,10 @@ public class MainActivity extends Activity {
 				}else if("applist_api".equals(type)){
 					
 				}else if("adlist_api".equals(type)){
-					Utility.handleAdResponse(elevatorDB, arg1);
+					List<Ad> download_list = Utility.handleAdResponse(elevatorDB, arg1);
+					if((download_list.size()!=0)&&(download_list!=null)){
+						
+					}
 				}else if("instantmessage_api".equals(type)){
 					
 				}else if("switchs_api".equals(type)){
