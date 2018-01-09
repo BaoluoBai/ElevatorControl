@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/floorview">
+    
+	<ImageView 
+	    android:id="@+id/iv_logo_co"
+	    android:layout_width="220px"
+	    android:layout_height="40px"
+	    android:layout_marginTop="15px"
+	    android:layout_marginLeft="30px"
+	    android:src="@drawable/logo"/>
+	
+	<ImageView 
+	    android:id="@+id/iv_arrow"
+	    android:layout_marginTop="110px"
+	    android:layout_marginLeft="35px"
+	    android:layout_width="92px"
+	    android:layout_height="130px"
+	    android:src="@drawable/arrow_up"/>
+	
+	<ImageView 
+	    android:id="@+id/iv_floor_display"
+	    android:layout_width="108px"
+	    android:layout_height="160px"
+	    android:layout_marginLeft="155px"
+	    android:layout_marginTop="100px"
+	    android:src="@drawable/char_1"/>
+
+	<ImageView
+	    android:id="@+id/iv_elevator_status"
+	    android:layout_width="252px"
+	    android:layout_height="54px"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:src="@drawable/status_inspection_zh" />
+	    
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/controlview">
+    
+	<ImageView
+	    android:id="@+id/iv_btn_one"
+	    android:layout_width="150px"
+	    android:layout_height="69px"
+	    android:layout_marginLeft="47px"
+	    android:layout_marginTop="20px"
+	    android:src="@drawable/btn_one_0"/>
+	
+	<ImageView
+	    android:id="@+id/iv_btn_two"
+	    android:layout_width="150px"
+	    android:layout_height="69px"
+	    android:layout_toRightOf="@+id/iv_btn_one"
+	    android:layout_marginLeft="36px"
+	    android:layout_marginTop="20px"
+	    android:src="@drawable/btn_two_0"/>
+	
+	<ImageView
+	    android:id="@+id/iv_btn_three"
+	    android:layout_width="150px"
+	    android:layout_height="69px"
+	    android:layout_marginLeft="47px"
+	    android:layout_marginTop="98px"
+	    android:src="@drawable/btn_three_0"/>
+	
+	<ImageView
+	    android:id="@+id/iv_btn_four"
+	    android:layout_width="150px"
+	    android:layout_height="69px"
+	    android:layout_toRightOf="@+id/iv_btn_three"
+	    android:layout_marginLeft="36px"
+	    android:layout_marginTop="98px"
+	    android:src="@drawable/btn_four_0"/>
+	
+	<ImageView
+	    android:id="@+id/iv_btn_open"
+	    android:layout_width="150px"
+	    android:layout_height="69px"
+	    android:layout_toRightOf="@+id/iv_btn_two"
+	    android:layout_marginLeft="36px"
+	    android:layout_marginTop="20px"
+	    android:src="@drawable/btn_open_0"/>
+	
+	<ImageView
+	    android:id="@+id/iv_btn_close"
+	    android:layout_width="150px"
+	    android:layout_height="69px"
+	    android:layout_toRightOf="@+id/iv_btn_four"
+	    android:layout_marginLeft="36px"
+	    android:layout_marginTop="98px"
+	    android:src="@drawable/btn_close_0"/>
+	
+	<ImageView 
+	    android:id="@+id/iv_btn_call"
+	    android:layout_width="140px"
+	    android:layout_height="140px"
+	    android:layout_marginTop="24px"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="30px"
+	    android:src="@drawable/btn_call"/>
+</RelativeLayout>
