@@ -36,17 +36,5 @@
 	    	android:visibility="gone"
 	    />
 	    
-	    <ProgressBar 
-	    	android:id="@+id/app_bar"
-	    	android:layout_width="match_parent"
-	    	android:layout_height="10px"
-	    	android:layout_marginBottom="3px"
-	    	android:layout_weight="1"
-	    	style="?android:attr/progressBarStyleHorizontal"
-	    	android:max="100"
-	    	android:progress="70"
-	    	android:visibility="gone"
-	    />
-    
 	</LinearLayout>
 </RelativeLayout>

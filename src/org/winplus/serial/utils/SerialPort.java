@@ -1,4 +1,4 @@
-package com.eightmile.elevatorcontrol.util;
+package org.winplus.serial.utils;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -43,6 +43,7 @@ public class SerialPort {
                 throw new SecurityException();  
             }  
         }  
+  //�豸�����·��,baudrate������
         mFd = open(device.getAbsolutePath(), baudrate, flags);  
         if (mFd == null) {  
             Log.e(TAG, "native open returns null");  

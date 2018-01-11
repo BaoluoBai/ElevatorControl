@@ -115,9 +115,9 @@ public static final String TAG= "Utility";
 			JSONObject jsonObject = JSONObject.parseObject(body);
 			String status = jsonObject.getString("status");
 			JSONArray adArray = null;
+			List<AdInfo> list = new ArrayList<AdInfo>();
+			list = elevatorDB.loadAd();
 			if(status.equals("1")){
-				List<AdInfo> list = new ArrayList<AdInfo>();
-				list = elevatorDB.loadAd();
 				if(list.size()==0){
 					//本地没有广告数据，从服务器下载，并保存到数据库
 					LogUtil.d(TAG, body);
@@ -130,21 +130,54 @@ public static final String TAG= "Utility";
 					if(adArray!= null){
 						for(int i = 0; i<adArray.size(); i++){
 							Ad bean = new Ad();
-							bean.setName(adArray.getJSONObject(i).getString("name"));
+							bean.setName(getNameFromUrl(adArray.getJSONObject(i).getString("url").toString()));
 							bean.setLocation(Config.get("adPath"));
-							bean.setUrl(adArray.getJSONObject(i).getString("url"));
+							bean.setUrl(adArray.getJSONObject(i).getString("url").toString());
 							download_list.add(bean);
 						}
 					}
 					
 				}else{
 					//本地有服务器数据，与服务器数据比对
-					if(!body.equals(list.get(0).getClass())){
+					if(!body.equals(list.get(0).getContent())){
 						LogUtil.d(TAG, body);
 						//加载服务器广告
+						elevatorDB.saveAd(body);
+						try {
+							adArray = jsonObject.getJSONArray("data");
+						} catch (Exception e) {
+							adArray = null;
+						}
+						if(adArray!= null){
+							for(int i = 0; i<adArray.size(); i++){
+								Ad bean = new Ad();
+								bean.setName(getNameFromUrl(adArray.getJSONObject(i).getString("url").toString()));
+								bean.setLocation(Config.get("adPath"));
+								bean.setUrl(adArray.getJSONObject(i).getString("url").toString());
+								download_list.add(bean);
+							}
+						}
 					}else{
 						//加载本地广告
-						LogUtil.d(TAG, body);
+						if(list.size()>0){
+//							LogUtil.d(TAG, "local: "+list.get(0).getContent());
+							JSONObject localObject = JSONObject.parseObject(list.get(0).getContent());
+							JSONArray localArray = null;
+							try {
+								localArray = localObject.getJSONArray("data");
+							} catch (Exception e) {
+								localArray = null;
+							}
+							if(localArray!=null){
+								for(int i = 0; i<localArray.size(); i++){
+									Ad bean = new Ad();
+									bean.setName(getNameFromUrl(localArray.getJSONObject(i).getString("url").toString()));
+									bean.setLocation(Config.get("adPath"));
+									bean.setUrl("");
+									download_list.add(bean);
+								}
+							}
+						}
 					}
 				}
 			}else{
@@ -153,4 +186,8 @@ public static final String TAG= "Utility";
 		}
 		return download_list;
 	} 
+	
+	public static String getNameFromUrl(String url) {
+        return url.substring(url.lastIndexOf("/") + 1);
+    }
 }

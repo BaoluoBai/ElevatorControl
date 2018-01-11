@@ -9,7 +9,7 @@
 	    android:layout_height="40px"
 	    android:layout_marginTop="15px"
 	    android:layout_marginLeft="30px"
-	    android:src="@drawable/logo"/>
+	    android:background="@drawable/logo_kl"/>
 	
 	<ImageView 
 	    android:id="@+id/iv_arrow"
@@ -17,22 +17,23 @@
 	    android:layout_marginLeft="35px"
 	    android:layout_width="92px"
 	    android:layout_height="130px"
-	    android:src="@drawable/arrow_up"/>
+	    android:background="@drawable/arrow_up"/>
 	
-	<ImageView 
-	    android:id="@+id/iv_floor_display"
+	<TextView 
+	    android:id="@+id/tv_floor_display"
 	    android:layout_width="108px"
-	    android:layout_height="160px"
+	    android:layout_height="60px"
 	    android:layout_marginLeft="155px"
-	    android:layout_marginTop="100px"
-	    android:src="@drawable/char_1"/>
+	    android:layout_marginTop="130px"
+	    android:textSize="42px"
+	    android:gravity="center"
+	    android:textColor="#FFFFFF"/>
 
 	<ImageView
 	    android:id="@+id/iv_elevator_status"
 	    android:layout_width="252px"
 	    android:layout_height="54px"
 	    android:layout_alignParentBottom="true"
-	    android:layout_centerHorizontal="true"
-	    android:src="@drawable/status_inspection_zh" />
+	    android:layout_centerHorizontal="true" />
 	    
 </RelativeLayout>
